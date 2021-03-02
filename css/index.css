@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #181e3a;
+}
+h1,h2,h3,h4,h5,p,a,label{
+    font-family: 'Fjalla One', sans-serif;
+}
+.shadow-blue{
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.shadow-black{
+    box-shadow: 0 0 0 0.25rem rgba(63, 65, 68, 0.25);
+}
+.navbar{
+    position: fixed;
+    z-index: 2;
+}
+.profile-text-box,.portfolio,.acercademi{
+    background-color: #A0B9C6;
+}
+.profile-image-box{
+    width: 200px;
+    position: relative;
+    top: 100px;
+}
+.acercademi{
+    position: relative;
+}
+.clippy{
+    position: absolute;
+    left: 155px;
+    top: 10px;
+    z-index: 1;
+    width: 132px;
+    height: 311px;
+    background: url(../img/clippy.png) no-repeat;
+}
+.clippy:focus{
+    width: 0px;
+}
+@media (max-width: 800px){
+    .clippy{
+        left: -15px;
+    }
+}
+/* Paleta elegida: https://coolors.co/45484b-259a9f-181e3a-a0b9c6-a5f8d3*/

@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,p,a,label{
 /*------------------RESPONSIVE: MEDIA QUERIES-------------------*/
 @media (max-width: 800px){
     .clippy{
-        left: -15px;
+        left: -25px;
     }
 }
 /* Paleta elegida: https://coolors.co/45484b-259a9f-181e3a-a0b9c6-a5f8d3*/

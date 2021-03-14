@@ -112,6 +112,7 @@ function middleCharacter(str){
         return str[(str.length - 1)/2]
     }
 }
+
 //-----------------------------
 /* 7. Mover ceros a lo último */
 //-----------------------------

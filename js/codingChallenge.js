@@ -148,7 +148,7 @@ Soy 4 y yo soy a */
 
 function arrayHandler(arreglo1, arreglo2){
     if(arreglo1.length !== arreglo2.length){
-        return "Los arreglos no son iguales."
+        return "Error. Los arreglos no tienen la misma cantidad de elementos."
     }else{
         for(let i=0; i<arreglo1.length; i++){
             console.log(`Soy ${arreglo1[i]} y yo soy ${arreglo2[i]}`)
@@ -240,7 +240,7 @@ function arregloDeObjetos(numero){
 /* 12. Arreglo de objetos */
 //-------------------------
 
-/* Debés crear una función llamada `arregloDeObjetos` que reciba un número y una palabra como parámetro y devuelva un arreglo de objetos que tenga: una propiedad llamada como la palabra pasada por parámetro y el valor del número y sus anteriores.
+/* Debés crear una función llamada `arregloDeObjetos2` que reciba un número y una palabra como parámetro y devuelva un arreglo de objetos que tenga: una propiedad llamada como la palabra pasada por parámetro y el valor del número y sus anteriores.
 
 Ejemplo:
 arregloDeObjetos(5, “hola”) debe retornar [{hola: 1}, {hola: 2}, {hola: 3}, {hola: 4}, {hola: 5 }]
@@ -343,8 +343,8 @@ function validarPrefijo(numero){
     for (let i=0; i<5; i++){
         prefijosPaisesObj[prefijos[i]]=paises[i]
     }
-    if (prefijosPaisesObj[parseInt(numero.toString().slice(0,3))]){
-        return `Este numero pertenece a ${prefijosPaisesObj[numero]}`
+    if (prefijosPaisesObj[parseInt(numero.toString().slice(0,2))]){
+        return `Este numero pertenece a ${prefijosPaisesObj[parseInt(numero.toString().slice(0,2))]}`
     }else{
         return "El numero no pertenece a nuestros países"
     }
@@ -424,33 +424,27 @@ function palindromo(str){
 }
 
 //---------------------------------------
-/* 18. Rotación de arreglo a la derecha */ //PENDIENTE
+/* 18. Rotación de arreglo a la derecha */
 //---------------------------------------
 
 /* Debes crear una función llamada “rotar” que reciba un arreglo y un número, y debera retornar un nuevo arreglo con los elementos rotados la cantidad de veces como sea el número a la derecha.
 
 Ejemplo: 
-       0  1  2  3  4                     3  4  0  1  2
 rotar([1, 2, 3, 4, 5], 2) debe retornar [4, 5, 1, 2, 3]
-
-       0  1  2  3  4                     2  3  4  0  1
 rotar([1, 2, 3, 4, 5], 3) debe retornar [3, 4, 5, 1, 2] */
 
 function rotar(arreglo, desplazamientoDerecha){
     let nuevoArreglo = []
     if(desplazamientoDerecha>arreglo.length)
-        desplazamientoDerecha = desplazamientoDerecha - Math.floor(desplazamientoDerecha/arreglo.length) * arreglo.length //Hago que el nro de desplazamientos caiga entre el intervalo (1-arreglo.length) para facilitar el calcular desplazamientos que son mayores al numero de elementos del array.
-    for(let i=0; i<arreglo.length; i++){
-        if (i + 1 + desplazamientoDerecha < arreglo.length){
-            nuevoArreglo[i]=arreglo[i + 1 + desplazamientoDerecha]
-        }else{
-            nuevoArreglo[i]=arreglo[i - desplazamientoDerecha]
-        }
-        
+        desplazamientoDerecha = desplazamientoDerecha - Math.floor(desplazamientoDerecha/arreglo.length) * arreglo.length 
+    //Hago que el nro de desplazamientos caiga en el intervalo = [ 0 , arreglo.length ] para evitar que se hagan push y shift de más innecesarios cuando pongo un nro de rotaciones muy grande.
+    for (i=0; i<desplazamientoDerecha; i++){
+        arreglo.unshift(arreglo.pop())
     }
-    return nuevoArreglo
+    return arreglo
 }
-//NOTA: Este ejercicio ↑ es el que más me costó pensar de todos, tuve que pensar muchísimo en los índices y la relación entre ellos para no hacer overflow. 
+
+//NOTA: Este ejercicio ↑ es el que más me costó pensar de todos, porque lo primero que se me ocurrió fue jugar con los índices y perdí literalmente horas machacandome la cabeza tratando de resolverlo, hasta que me di cuenta que se podía resolver fácilmente con push() pop() shift() y unshift().
 
 //-----------------------------
 /* 19. Consecutivos similares */

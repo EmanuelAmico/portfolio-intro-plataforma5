@@ -413,6 +413,7 @@ palindromo(“Ana”) debe retornar true
 palindromo(“Enrique”) debe retornar false */
 
 function palindromo(str){
+    str = str.toLowerCase()
     let strInvertido = ""
     for (let i=0; i<str.length; i++){
         strInvertido = strInvertido.concat(str[str.length - (i+1)]) 
